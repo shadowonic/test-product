@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  private isLogged: boolean;
+  public isLogged: boolean;
   constructor(private authService: AuthService) {
     this.authService.isLogged.subscribe(isLogged => {
       this.isLogged = isLogged;
