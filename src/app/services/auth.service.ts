@@ -2,21 +2,40 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { API, KEY, HEADERS } from '../config';
 
-import { UserData } from '../types';
+import { UserData, ILogged } from '../types';
 import { Route, Router } from '@angular/router';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
 
 @Injectable()
 export class AuthService {
-    constructor(private http: HttpClient, private router: Router) { }
-    login(user) {
-        const body = { userName: user.userName, password: user.password };
+    public isLogged = new BehaviorSubject<boolean>(!!localStorage.getItem('userToken'));
+    constructor(private http: HttpClient, private router: Router) {
+        console.log(1);
 
-        return this.http.post(API + '/login', body, {
-            observe: 'response'
-        }).subscribe(
-            error => console.log('oops', error.statusText),
-        );
+    }
+
+    login(user): Promise<void> {
+        const body = { userName: user.userName, password: user.password };
+        return new Promise((resolve, reject) => {
+            this.http.post<{ token: string }>(API + '/login', body, {
+                observe: 'response'
+            }).subscribe(
+                ({ body: { token } }) => {
+                    localStorage.setItem('userToken', token);
+                    this.isLogged.next(true);
+                    this.router.navigate(['']);
+                    resolve();
+                },
+                err => reject(err)
+            );
+        });
+
+
+    }
+    logout() {
+        localStorage.removeItem('userToken');
+        this.isLogged.next(false);
     }
     registration(user) {
         const body = { userName: user.userName, password: user.password };
@@ -28,8 +47,9 @@ export class AuthService {
                     this.router.navigate(['/login']);
                 }
             },
-    error => console.log('oops', error.statusText));
-}
+            error => console.log('oops', error.statusText));
+    }
+
 }
 
 
