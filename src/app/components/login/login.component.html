@@ -1,0 +1,15 @@
+<p>
+  login works!
+</p>
+<form class="form-control" (ngSubmit)="onSubmit()">
+  <mat-form-field >
+    <input matInput type = 'text'placeholder="Name" required #name='ngModel' name='name' [(ngModel)]="user.userName" >
+  </mat-form-field>
+
+  <mat-form-field >
+    <input type = 'text' minlength="6" matInput placeholder="Password" required name='password' #password='ngModel' [(ngModel)]='user.password'>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Login</button>
+  
+</form>
