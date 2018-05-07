@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContentComponent } from './components/content/content.component';
-import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +25,6 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     AppComponent,
     HeaderComponent,
     ContentComponent,
-    AuthComponent,
     LoginComponent,
     RegistrationComponent,
     ProductItemComponent,
