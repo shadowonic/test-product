@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { IProduct, Product } from '../types';
 import { API } from '../config';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

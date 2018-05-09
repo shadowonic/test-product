@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 
 import { ProductService } from '../../services/product.service';
@@ -12,16 +12,15 @@ import { Product } from '../../types';
 export class ProductFormComponent {
   productForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private prodService: ProductService,
-    private cd: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder, private prodService: ProductService) {
     this.createForm();
   }
 
   createForm() {
     this.productForm = this.fb.group({
-      title: [''],
-      text: [''],
-      image: [null]
+      title: ['', Validators.required],
+      text: ['', Validators.required],
+      image: [null, Validators.required]
     });
   }
   onSubmit() {
@@ -40,19 +39,6 @@ export class ProductFormComponent {
       this.productForm.patchValue({
         image: file
       });
-
-
-
-      // reader.onload = () => {
-
-      //   console.log(reader.result);
-      //   this.productForm.patchValue({
-      //     image: file
-      //   });
-
-      // need to run CD since file load runs outside of zone
-      // this.cd.markForCheck();
-      // };
     }
   }
 }

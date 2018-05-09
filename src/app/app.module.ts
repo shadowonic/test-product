@@ -7,6 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatInputModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,6 +25,7 @@ import { ProductService } from './services/product.service';
 
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +36,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     RegistrationComponent,
     ProductItemComponent,
     ProductFormComponent,
+    ProductComponent,
+
   ],
   imports: [
     CdkTableModule,
@@ -41,6 +49,9 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatCardModule,
+    MatGridListModule,
+     MatDividerModule
 
   ],
   providers: [AuthService, ProductService],
