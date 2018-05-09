@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { IProduct } from '../types';
-import { API, KEY, HEADERS } from '../config';
+import { IProduct, Product } from '../types';
+import { API } from '../config';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -9,16 +9,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  public headers = new HttpHeaders;
-
   constructor(private http: HttpClient) {
-    this.headers.set('Authorization', KEY);
   }
   getProduct(): Observable<{ products: IProduct[] }> {
     return this.http.get<{ products: IProduct[] }>(API + '/product', {
-      headers: HEADERS,
       responseType: 'json',
       withCredentials: true
     });
+  }
+  postProduct(product: Product) {
+    console.log(product);
+    const body = { title: product.title, image: product.image, text: product.text };
+    console.log(body);
+
+    return this.http.post<{ product: Product }>(API + '/product', body, {
+      headers: { 'Authorization': localStorage.getItem('userToken') }
+    }).subscribe(
+      res => console.log(res),
+      err => console.log((err))
+    );
   }
 }

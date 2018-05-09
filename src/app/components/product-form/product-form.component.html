@@ -1,0 +1,25 @@
+<form [formGroup]='productForm' (ngSubmit)="onSubmit()">
+    
+  <div class="form-group">
+    <label class="center-block">Title:
+      <input matInput class="form-control" formControlName="title">
+    </label>
+  </div>
+
+  <div class='form-group'>
+    <label class="center-block">Image:
+      <input type="file" (change)="onFileChange($event)" class="form-control">
+    </label>
+  </div>
+
+  <div class='form-group'>
+    <label class="center-block">Text:
+      <input class="form-control" formControlName="text">
+    </label>
+  </div>
+  <button type="submit" mat-raised-button color="primary">Add product</button>
+</form>
+
+<p>Form value: {{ productForm.value | json }}</p>
+<p>Form status: {{ productForm.status | json }}</p>
+<p>Form value: {{ productForm.value.name }}</p>

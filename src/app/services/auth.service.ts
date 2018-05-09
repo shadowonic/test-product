@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
-import { API, KEY, HEADERS } from '../config';
+import { API } from '../config';
 
 import { UserData, ILogged } from '../types';
 import { Route, Router } from '@angular/router';
@@ -11,8 +11,6 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
 export class AuthService {
     public isLogged = new BehaviorSubject<boolean>(!!localStorage.getItem('userToken'));
     constructor(private http: HttpClient, private router: Router) {
-        console.log(1);
-
     }
 
     login(user): Promise<void> {

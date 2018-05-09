@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule} from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserData } from '../../types';
@@ -8,7 +8,7 @@ import { UserData } from '../../types';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent  {
+export class RegistrationComponent {
 
   constructor(private service: AuthService) { }
   user = new UserData('Hike', '123456');

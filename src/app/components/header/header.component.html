@@ -5,6 +5,6 @@
   <a *ngIf='!isLogged' mat-raised-button color="primary" routerLink="/registration">Registration</a>
   <a *ngIf='!isLogged' mat-raised-button color="primary" routerLink="/login">Login</a>
   <a mat-raised-button color="primary" routerLink="">Main</a>
-  <button type="button" mat-raised-button color="primary" (click)="logout()">Logout</button>
+  <a mat-raised-button color='primary' routerLink='/add-product'>Add Product</a>
+  <button *ngIf='isLogged' type="button" mat-raised-button color="primary" (click)="logout()">Logout</button>
 </nav>
-

@@ -2,9 +2,10 @@
   product-item works!
 </p>
 <ul>
-  <li *ngFor= "let product of products">
-   <div> {{product.Title}}</div>
-   <div> {{product.Image}}</div>
-   <div> {{product.Text}}</div>
+  <li *ngFor="let product of products">
+    <div> {{product._id}}</div>
+    <div> {{product.title}}</div>
+    <div> {{product.image}}</div>
+    <div> {{product.text}}</div>
   </li>
 </ul>

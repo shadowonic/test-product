@@ -7,11 +7,18 @@ export class UserData {
 
 export interface IProduct {
     _id: number;
-    Title: string;
-    Image: string;
-    Text: string;
+    title: string;
+    imageURL: string;
+    text: string;
 }
 
 export interface ILogged {
     Logged: boolean;
+}
+export class Product {
+    constructor (
+       public title: string,
+       public image: File,
+       public text: string
+    ) {}
 }

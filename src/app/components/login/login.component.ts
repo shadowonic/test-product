@@ -25,8 +25,5 @@ export class LoginComponent {
     this.authService.login(this.user)
       .catch(err => console.error(err));
        console.log(this.isLogged);
-
-
   }
-
 }

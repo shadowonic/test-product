@@ -19,6 +19,7 @@ import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
 
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     LoginComponent,
     RegistrationComponent,
     ProductItemComponent,
+    ProductFormComponent,
   ],
   imports: [
     CdkTableModule,
