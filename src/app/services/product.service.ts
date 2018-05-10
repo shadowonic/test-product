@@ -17,6 +17,12 @@ export class ProductService {
       withCredentials: true
     });
   }
+  getProductById(id): Observable<{ product: IProduct }> {
+    return this.http.get<{ product: IProduct }>(`${API}/product/${id}`, {
+      responseType: 'json',
+      withCredentials: true
+    });
+  }
   postProduct(product: Product) {
     console.log(product);
     const body = { title: product.title, image: product.image, text: product.text };

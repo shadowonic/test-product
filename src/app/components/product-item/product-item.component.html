@@ -14,7 +14,7 @@
     </mat-card>
   </li>
 </ul> -->
-<mat-grid-list cols="3" rowHeight="1:1">
+<mat-grid-list cols="1" rowHeight="1:1">
   <mat-grid-tile *ngFor="let product of products">
     <mat-card class="card">
       <mat-card-header>
@@ -27,7 +27,7 @@
           {{product.text}}
         </p>
       </mat-card-content>
-      <a mat-raised-button color='primary' routerLink='/product:id'>Details</a>
+      <a mat-raised-button color='primary' routerLink='/product/{{product._id}}'>Details</a>
     </mat-card>
     <mat-divider></mat-divider>
   </mat-grid-tile>
