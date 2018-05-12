@@ -1,34 +1,21 @@
-<!-- <ul>
-  <li *ngFor="let product of products">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{product.title}}</mat-card-title>
+
+
+<ul class="flex-container products">
+  <li class="flex-item" *ngFor="let product of products">
+    <mat-card class="card">
+      <mat-card-header class="header">
+        <mat-card-title class="title">{{product.title}}</mat-card-title>
       </mat-card-header>
-      <img mat-card-image [src]="product.imageURL">
-      <mat-card-content>
-        <p>
-          {{product.text}}
-        </p>
+      <div class="image">
+        <img [src]="product.imageURL">
+      </div>
+      <mat-card-content class="content">
+        {{product.text}}
       </mat-card-content>
+      <div class="footer">
+        <a mat-raised-button color='primary' class="button" routerLink='/product/{{product._id}}'>Details</a>
+      </div>
+
     </mat-card>
   </li>
-</ul> -->
-<mat-grid-list cols="1" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let product of products">
-    <mat-card class="card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{product.title}}</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image [src]="product.imageURL">
-      <mat-card-content>
-        <p>
-          {{product.text}}
-        </p>
-      </mat-card-content>
-      <a mat-raised-button color='primary' routerLink='/product/{{product._id}}'>Details</a>
-    </mat-card>
-    <mat-divider></mat-divider>
-  </mat-grid-tile>
-</mat-grid-list>
+</ul>

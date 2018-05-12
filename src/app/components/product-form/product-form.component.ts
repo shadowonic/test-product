@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 
 import { ProductService } from '../../services/product.service';
-import { Product } from '../../types';
+
 
 @Component({
   selector: 'app-product-form',

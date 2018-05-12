@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { CdkTableModule } from '@angular/cdk/table';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatInputModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
@@ -10,6 +10,7 @@ import { HttpModule } from '@angular/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,10 +23,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
+import { CommentService } from './services/comment.service';
 
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductComponent } from './components/product/product.component';
+import { FormCommentComponent } from './components/form-comment/form-comment.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { ProductComponent } from './components/product/product.component';
     ProductItemComponent,
     ProductFormComponent,
     ProductComponent,
+    FormCommentComponent,
 
   ],
   imports: [
@@ -51,10 +55,11 @@ import { ProductComponent } from './components/product/product.component';
     HttpClientModule,
     MatCardModule,
     MatGridListModule,
-     MatDividerModule
+    MatDividerModule,
+    MatSliderModule
 
   ],
-  providers: [AuthService, ProductService],
+  providers: [AuthService, ProductService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
