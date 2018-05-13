@@ -10,6 +10,7 @@ export interface IProduct {
     title: string;
     imageURL: string;
     text: string;
+    rate?: number;
 }
 
 export interface ILogged {
@@ -24,8 +25,20 @@ export class Product {
 }
 export class Comment {
     constructor(
-        public rate: number,
         public body: string,
         public productID: string
     ) { }
+}
+export class FormRating {
+    constructor(
+        public rate: number,
+        public productID: string
+    ) { }
+}
+export interface IComment {
+    _id: number;
+    productID: string;
+    userID: string;
+    body: string;
+    timestamp: number;
 }

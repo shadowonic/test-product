@@ -1,5 +1,3 @@
-
-
 <ul class="flex-container products">
   <li class="flex-item" *ngFor="let product of products">
     <mat-card class="card">
@@ -8,6 +6,17 @@
       </mat-card-header>
       <div class="image">
         <img [src]="product.imageURL">
+      </div>
+      <div class="rate">
+        <div class="bg">
+          <i *ngFor="let item of ' '.repeat(5).split('')" class="fa fa-star-o" >
+          </i>
+        </div>
+        <div class="fg" [ngStyle]="{'width': product.rate*20 + '%'}">
+          <i *ngFor="let item of ' '.repeat(5).split('')" class="fa fa-star">
+          </i>
+          {{product.rate}}
+        </div>
       </div>
       <mat-card-content class="content">
         {{product.text}}

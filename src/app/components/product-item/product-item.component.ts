@@ -12,9 +12,12 @@ import { API } from '../../config';
 })
 export class ProductItemComponent implements OnInit {
   public products: IProduct[];
+  starList: boolean[] = [false, true, true, true, true];
   constructor(private service: ProductService) {
     this.service.getProduct().subscribe((data) => {
       console.log(data);
+console.log(typeof(data));
+
       this.products = data.products.map(item => (
         { ...item, imageURL: item.imageURL && API + item.imageURL || '/assets/images/no-product.png' }
       ));

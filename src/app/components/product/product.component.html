@@ -1,16 +1,35 @@
-<p>Fuck</p>
 
 <mat-card *ngIf="product" class="card" (ngSubmit)="onSubmit()">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+  <mat-card-header class="header">
     <mat-card-title>{{product.title}}</mat-card-title>
   </mat-card-header>
   <img mat-card-image [src]="product.imageURL">
-  <mat-card-content>
-    <p>
-      {{product.text}}
-    </p>
+  <mat-card-content class="content">
+    {{product.text}}
   </mat-card-content>
+  <div class="rate">
+    <div class="bg">
+      <i *ngFor="let item of ' '.repeat(5).split('')" class="fa fa-star-o">
+      </i>
+    </div>
+    <div class="fg" [ngStyle]="{'width': product.rate*20 + '%'}">
+      <i *ngFor="let item of ' '.repeat(5).split('')" class="fa fa-star">
+      </i>
+      {{product.rate}}
+    </div>
+  </div>
   <a mat-raised-button color='primary' routerLink='/product:id'>Details</a>
 </mat-card>
 <app-form-comment></app-form-comment>
+<ul class="comments">
+  <li *ngFor='let comment of comment'>
+    <div class="comment card">
+     <div class="auth">
+        Author: {{comment._id}}
+     </div>
+     {{comment.productID}}
+      {{comment.body}}
+    </div>
+
+  </li>
+</ul>

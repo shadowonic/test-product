@@ -1,19 +1,15 @@
-<p>
-  form-comment works!
-</p>
-
-<form [formGroup]='commentForm' (ngSubmit)="onSubmit()">
-  <br>
+<div class="form">
+  <br>Rate it:
   <a *ngFor="let item of starList; let i=index " (click)="setStar(i)">
     <i class="fa" [ngClass]="{'fa-star-o':item,'fa-star':!item}"></i>
   </a>
-  <br> Rating :- {{rating}} stars
-
-  <div class="form-group">
-    <label class="center-block">Comment:
-      <input matInput class="form-control" formControlName="body">
-    </label>
-  </div>
-  <button type="submit">Post Comment</button>
-</form>
+  <form [formGroup]='commentForm' (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="center-block">Comment it:
+        <input matInput class="form-control" formControlName="body">
+      </label>
+    </div>
+    <!-- <button type="submit">Post Comment</button> -->
+  </form>
+</div>
 

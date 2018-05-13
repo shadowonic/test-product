@@ -40,7 +40,7 @@ import { FormCommentComponent } from './components/form-comment/form-comment.com
     ProductItemComponent,
     ProductFormComponent,
     ProductComponent,
-    FormCommentComponent,
+    FormCommentComponent
 
   ],
   imports: [

@@ -21,6 +21,21 @@
           font-size: 18px;
         }
       }
+      .rate {
+        position: relative;
+        align-self: center;
+        .bg {}
+        .fg {
+          position: absolute;
+          left: 0;
+          height: 100%;
+          width: 62%;
+          top: 0;
+          overflow: hidden;
+          white-space: nowrap;
+          color: yellow;
+        }
+      }
     }
     .image {
       img {
@@ -40,7 +55,6 @@
     }
   }
 }
-
 
 // .card {
 //     
