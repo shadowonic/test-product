@@ -32,8 +32,8 @@ export class CommentService {
       res => console.log(res),
       err => console.error(err.errorText));
   }
-  getCommentById(id): Observable<{ comments: IComment []}> {
-    return this.http.get<{ comments: IComment []}>(`${API}/comment`, {
+  getCommentById(id): Observable<{ comments: IComment[] }> {
+    return this.http.get<{ comments: IComment[] }>(`${API}/comment`, {
       responseType: 'json',
       headers: {
         'Authorization': localStorage.getItem('userToken'),
